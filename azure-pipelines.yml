@@ -21,13 +21,7 @@ steps:
       ng build --prod
     displayName: 'npm install and build'
 
-  - task: AngularCli@8
-    displayName: 'npm publish $(buildconfiguration)'
-    inputs:
-      command: publish
-      publishWebProjects: True
-      arguments: '--configuration $(buildconfiguration) --output $(Build.ArtifactStagingDirectory)'
-      zipAfterPublish: True
-
-  - task: PublishBuildArtifacts@1
-    displayName: 'publish artifacts'
+  - task: PublishPipelineArtifact@0
+  inputs:
+    artifactName: 'angular'
+    targetPath: 'src/bmv/dist'

@@ -1,0 +1,20 @@
+.app-main {
+    // background-color: rgb(75, 22, 102);
+    opacity: 0.5;
+}
+
+.rotate {
+    transform: rotateY(45deg);
+    transform-style: preserve-3d(45deg);
+    animation: 2s rotation infinite forwards;
+    animation-direction: alternate;
+}
+
+@keyframes rotation {
+    from {
+        transform: rotateY(0deg);
+    }
+    to {
+        transform: rotateY(359deg);
+    }
+}

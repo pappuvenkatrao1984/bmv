@@ -22,11 +22,11 @@ steps:
     displayName: 'npm install and build'
 
   - task: AngularCli@8
-    displayName: 'npm install and build'
+    displayName: 'npm publish $(buildconfiguration)'
     inputs:
       command: publish
       publishWebProjects: True
-      arguments: 'npm install -g @angular/cli --output $(Build.ArtifactStagingDirectory)'
+      arguments: '--configuration $(buildconfiguration) --output $(Build.ArtifactStagingDirectory)'
       zipAfterPublish: True
 
   - task: PublishBuildArtifacts@1
